@@ -29,9 +29,9 @@ namespace nomina
 
         private void FrmActualizar_Load(object sender, EventArgs e)
         {
-            conexion obconexion = new conexion();
-            this.listBox1.DataSource = obconexion.consultar2("empleado");
-            this.listBox1.DisplayMember = "idempleado";
+            CRUD obconexion = new CRUD();
+            this.listBox1.DataSource = obconexion.consultar2("select * from empleado");
+            this.listBox1.DisplayMember = "nombre_empleado";
             this.listBox1.ValueMember = "idempleado";
             this.listBox1.Refresh();
 
@@ -39,17 +39,33 @@ namespace nomina
 
         private void button2_Click(object sender, EventArgs e)
         {
-            conexion obconexion = new conexion();
+            CRUD obconexion = new CRUD();
             obconexion.conectar();
+            if (obconexion.consultarSinResultado("DELETE FROM empleado where idempleado='" + listBox1.SelectedValue.ToString() + "'"))
+            {
+                MessageBox.Show("Registro Eliminado");
+            }
+            else { MessageBox.Show("Error al Eliminar"); }
 
-            if(obconexion.eliminar("empleado", "idempleado='"+listBox1.SelectedValue.ToString()+"'"))
-            { MessageBox.Show("registro eliminado");}
-            else { MessageBox.Show("error"); }
+            listBox1.Refresh();
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string campo = "nombre_empleado = '"++"'"
+            CRUD  obconexion = new CRUD();
+            obconexion.conectar();
+            if (obconexion.consultarSinResultado("UPDATE empleado SET nombre_empleado = '" + this.TboxNombre.Text + "',apellido_empleado ='" + this.TboxApellido.Text + "'," +
+             "sexo_empleado ='" + this.CombSexo.Text + "', salario_empleado = '" + this.TboxSalario.Text + "' WHERE idempleado='" + listBox1.SelectedValue.ToString() + "'"))
+            {
+                MessageBox.Show("Registro Actualizado");
+            }
+            else { MessageBox.Show("Error al Actualizar"); }
+           
+
+             
+         
         }
+
     }
 }

@@ -20,13 +20,14 @@ namespace nomina
 
         public void Form1_Load(object sender, EventArgs e)
         {
-            conexion obconexion = new conexion();
+            CRUD obconexion = new CRUD();
             obconexion.conectar();
-            obconexion.consultar("select * from empleado;", "empleado");
-            this.Datagv1.DataSource = obconexion.ds.Tables["empleado"];
+            DataTable dt = obconexion.consultar2("select * from empleado empleado;");
+            this.Datagv1.DataSource = dt;
             this.Datagv1.Refresh();
-             
-    }
+
+           
+         }
 
        
 
@@ -44,9 +45,31 @@ namespace nomina
 
         private void Buscar_Click(object sender, EventArgs e)
         {
+            CRUD obCRUD = new CRUD();
+
+            if (Tboxbuscar.Text.Length == 0)
+            {
+
+                DataTable dt = obCRUD.consultar2(" SELECT  * FROM empleado ");
+                Datagv1.DataSource = dt;
+                return;
+            }
+
+            if (RadioId.Checked == true)
+            {
+                DataTable dt = obCRUD.consultar2(" SELECT  * FROM empleado WHERE idempleado='" + Tboxbuscar.Text.Trim() + "' ");
+                Datagv1.DataSource = dt;
+                return;
+            }
+
+            if (RadioNombre.Checked == true)
+            {
+                DataTable dt = obCRUD.consultar2(" SELECT  * FROM empleado WHERE nombre_empleado like '%" + Tboxbuscar.Text.Trim() + "%' ");
+                Datagv1.DataSource = dt;
+                return;
+            }
 
         }
-
         public void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -66,7 +89,7 @@ namespace nomina
 
         private void button3_Click(object sender, EventArgs e)
         {
-            conexion obconexion = new conexion();
+            CRUD obconexion = new CRUD();
             obconexion.conectar();
 
             /*
@@ -74,6 +97,11 @@ namespace nomina
             { MessageBox.Show("registro eliminado"); }
             else { MessageBox.Show("error"); }
         */
+        }
+
+        private void Tboxbuscar_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
     }

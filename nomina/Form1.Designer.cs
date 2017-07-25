@@ -29,12 +29,15 @@
         private void InitializeComponent()
         {
             this.Datagv1 = new System.Windows.Forms.DataGridView();
-            this.Txtboxnombre = new System.Windows.Forms.TextBox();
+            this.Tboxbuscar = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.Bt = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.RadioNombre = new System.Windows.Forms.RadioButton();
+            this.RadioApellido = new System.Windows.Forms.RadioButton();
+            this.RadioId = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.Datagv1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,28 +50,29 @@
             this.Datagv1.TabIndex = 0;
             this.Datagv1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // Txtboxnombre
+            // Tboxbuscar
             // 
-            this.Txtboxnombre.Location = new System.Drawing.Point(75, 32);
-            this.Txtboxnombre.Name = "Txtboxnombre";
-            this.Txtboxnombre.Size = new System.Drawing.Size(100, 20);
-            this.Txtboxnombre.TabIndex = 1;
+            this.Tboxbuscar.Location = new System.Drawing.Point(90, 53);
+            this.Tboxbuscar.Name = "Tboxbuscar";
+            this.Tboxbuscar.Size = new System.Drawing.Size(292, 20);
+            this.Tboxbuscar.TabIndex = 1;
+            this.Tboxbuscar.TextChanged += new System.EventHandler(this.Tboxbuscar_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 35);
+            this.label1.Location = new System.Drawing.Point(12, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 13);
+            this.label1.Size = new System.Drawing.Size(58, 13);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Nombre";
+            this.label1.Text = "Buscar por";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // Bt
             // 
-            this.Bt.Location = new System.Drawing.Point(433, 35);
+            this.Bt.Location = new System.Drawing.Point(398, 49);
             this.Bt.Name = "Bt";
-            this.Bt.Size = new System.Drawing.Size(75, 23);
+            this.Bt.Size = new System.Drawing.Size(80, 27);
             this.Bt.TabIndex = 3;
             this.Bt.Text = "Buscar";
             this.Bt.UseVisualStyleBackColor = true;
@@ -104,17 +108,53 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // RadioNombre
+            // 
+            this.RadioNombre.AutoSize = true;
+            this.RadioNombre.Location = new System.Drawing.Point(132, 26);
+            this.RadioNombre.Name = "RadioNombre";
+            this.RadioNombre.Size = new System.Drawing.Size(62, 17);
+            this.RadioNombre.TabIndex = 7;
+            this.RadioNombre.TabStop = true;
+            this.RadioNombre.Text = "Nombre";
+            this.RadioNombre.UseVisualStyleBackColor = true;
+            // 
+            // RadioApellido
+            // 
+            this.RadioApellido.AutoSize = true;
+            this.RadioApellido.Location = new System.Drawing.Point(200, 26);
+            this.RadioApellido.Name = "RadioApellido";
+            this.RadioApellido.Size = new System.Drawing.Size(62, 17);
+            this.RadioApellido.TabIndex = 8;
+            this.RadioApellido.TabStop = true;
+            this.RadioApellido.Text = "Apellido";
+            this.RadioApellido.UseVisualStyleBackColor = true;
+            // 
+            // RadioId
+            // 
+            this.RadioId.AutoSize = true;
+            this.RadioId.Location = new System.Drawing.Point(90, 26);
+            this.RadioId.Name = "RadioId";
+            this.RadioId.Size = new System.Drawing.Size(36, 17);
+            this.RadioId.TabIndex = 9;
+            this.RadioId.TabStop = true;
+            this.RadioId.Text = "ID";
+            this.RadioId.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(572, 379);
+            this.Controls.Add(this.RadioId);
+            this.Controls.Add(this.RadioApellido);
+            this.Controls.Add(this.RadioNombre);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.Bt);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.Txtboxnombre);
+            this.Controls.Add(this.Tboxbuscar);
             this.Controls.Add(this.Datagv1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -128,12 +168,15 @@
         #endregion
 
         private System.Windows.Forms.DataGridView Datagv1;
-        private System.Windows.Forms.TextBox Txtboxnombre;
+        private System.Windows.Forms.TextBox Tboxbuscar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button Bt;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.RadioButton RadioNombre;
+        private System.Windows.Forms.RadioButton RadioApellido;
+        private System.Windows.Forms.RadioButton RadioId;
     }
 }
 

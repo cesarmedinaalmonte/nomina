@@ -36,9 +36,12 @@
             this.TboxNombre = new System.Windows.Forms.TextBox();
             this.TboxApellido = new System.Windows.Forms.TextBox();
             this.CombSexo = new System.Windows.Forms.ComboBox();
-            this.TboxSalario = new System.Windows.Forms.TextBox();
+            this.Tboxid = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.Buscarid = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.Tboxsalario = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -112,13 +115,13 @@
             this.CombSexo.Size = new System.Drawing.Size(36, 21);
             this.CombSexo.TabIndex = 7;
             // 
-            // TboxSalario
+            // Tboxid
             // 
-            this.TboxSalario.Location = new System.Drawing.Point(94, 158);
-            this.TboxSalario.Name = "TboxSalario";
-            this.TboxSalario.Size = new System.Drawing.Size(100, 20);
-            this.TboxSalario.TabIndex = 8;
-            this.TboxSalario.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.Tboxid.Location = new System.Drawing.Point(75, 202);
+            this.Tboxid.Name = "Tboxid";
+            this.Tboxid.Size = new System.Drawing.Size(31, 20);
+            this.Tboxid.TabIndex = 8;
+            this.Tboxid.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // button1
             // 
@@ -138,15 +141,45 @@
             this.button2.TabIndex = 10;
             this.button2.Text = "Nuevo";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // Buscarid
+            // 
+            this.Buscarid.Location = new System.Drawing.Point(128, 198);
+            this.Buscarid.Name = "Buscarid";
+            this.Buscarid.Size = new System.Drawing.Size(47, 27);
+            this.Buscarid.TabIndex = 11;
+            this.Buscarid.Text = "Buscar";
+            this.Buscarid.UseVisualStyleBackColor = true;
+            this.Buscarid.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(34, 205);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(16, 13);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Id";
+            // 
+            // Tboxsalario
+            // 
+            this.Tboxsalario.Location = new System.Drawing.Point(94, 162);
+            this.Tboxsalario.Name = "Tboxsalario";
+            this.Tboxsalario.Size = new System.Drawing.Size(91, 20);
+            this.Tboxsalario.TabIndex = 13;
             // 
             // Insertardatos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(479, 319);
+            this.Controls.Add(this.Tboxsalario);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.Buscarid);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.TboxSalario);
+            this.Controls.Add(this.Tboxid);
             this.Controls.Add(this.CombSexo);
             this.Controls.Add(this.TboxApellido);
             this.Controls.Add(this.TboxNombre);
@@ -173,8 +206,11 @@
         private System.Windows.Forms.TextBox TboxNombre;
         private System.Windows.Forms.TextBox TboxApellido;
         private System.Windows.Forms.ComboBox CombSexo;
-        private System.Windows.Forms.TextBox TboxSalario;
+        private System.Windows.Forms.TextBox Tboxid;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button Buscarid;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox Tboxsalario;
     }
 }

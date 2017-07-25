@@ -11,34 +11,47 @@ using System.Data.SQLite;
 
 namespace nomina
 {
-    public class conexion
+    public class CRUD
     {
         private string cadena = "Data Source=C:\\Sistema\\nomina.s3db;Version=3;";
         public SQLiteConnection cn;
-        private SQLiteCommandBuilder cmb;
-        public DataSet ds = new DataSet();
-        public SQLiteDataAdapter da;
-        public SQLiteCommand comando;
+       
+        
+       
+       
 
         public void conectar()
         {
             cn = new SQLiteConnection(cadena);
 
         }
-        public conexion()
+        public CRUD()
             {
             conectar();
             }
 
-        public void consultar(string sql, string tabla)
+        public bool consultarSinResultado(string sql)
         {
-            ds.Tables.Clear();
-            da = new SQLiteDataAdapter(sql,cn);
-            cmb = new SQLiteCommandBuilder(da);
-            da.Fill(ds, tabla);
+            try
+            {
+                cn.Open();
+                SQLiteCommand comando = new SQLiteCommand(sql,cn);
+                comando.ExecuteNonQuery();
+                
+            }
+            catch (Exception )
+            {
+                return false;
+                
+            }
+            finally
+            {
+                cn.Clone();
+            }
+            return true;
         }
         //para eliminar datos
-        public bool eliminar(string tabla, string condicion)
+        /*public bool eliminar(string tabla, string condicion)
         {
             cn.Open();
             string sql = "delete from " + tabla + " where " + condicion;
@@ -59,7 +72,7 @@ namespace nomina
         public bool actualizar (string tabla, string campos, string condicion)
         {
             cn.Open();
-            string sql = "update" + tabla + "set" + "where" + condicion;
+            string sql = "update " + tabla + " set " + " where " + condicion;
             comando = new SQLiteCommand(sql, cn);
             int i = comando.ExecuteNonQuery();
             cn.Clone();
@@ -71,24 +84,36 @@ namespace nomina
             {
                 return false;
             }
-        }
-        public DataTable consultar2(string tabla)
+        }*/
+        public DataTable consultar2(string sql)
         {
-            string sql = "select * from " + tabla;
-            da = new SQLiteDataAdapter(sql, cn); 
-            DataSet dts = new DataSet();
-            da.Fill(dts, tabla);
-            DataTable dt = new DataTable();
-            dt = dts.Tables[tabla];
-            return dt;
-      
-
+                SQLiteDataAdapter da = new SQLiteDataAdapter();
+                DataTable dt = new DataTable();
+            try
+            {
+                cn.Open();
+                SQLiteCommand cmd;
+                cmd = cn.CreateCommand();
+                cmd.CommandText = sql;
+                da = new SQLiteDataAdapter(cmd);
+                da.Fill(dt);
+            }
+            catch (SQLiteException ex)
+            {
+            }
+            finally
+            {
+                cn.Close();
+            }
+               
+                return dt;
           
         }
         //Insertar Datos en nomina
         public bool insertar(string sql)
         {
             cn.Open();
+            SQLiteCommand comando;
             comando = new SQLiteCommand(sql, cn);
             int i = comando.ExecuteNonQuery();
             cn.Close();

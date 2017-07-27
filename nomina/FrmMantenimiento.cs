@@ -26,6 +26,7 @@ namespace nomina
         {
             MostrarDatos();
             CRUD obCRUD = new CRUD();
+            
             CombCargo.DataSource = obCRUD.consultar2("SELECT * FROM cargo");
             this.CombCargo.DisplayMember = "nombre_cargo";
             this.CombCargo.ValueMember = "idcargo";

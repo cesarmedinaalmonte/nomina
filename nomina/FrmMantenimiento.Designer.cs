@@ -150,6 +150,7 @@
             // 
             this.Datagv2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Datagv2.Location = new System.Drawing.Point(374, 61);
+            this.Datagv2.MultiSelect = false;
             this.Datagv2.Name = "Datagv2";
             this.Datagv2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Datagv2.Size = new System.Drawing.Size(718, 318);

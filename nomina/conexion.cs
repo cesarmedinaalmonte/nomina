@@ -15,10 +15,6 @@ namespace nomina
     {
         private string cadena = "Data Source=C:\\Sistema\\nomina.s3db;Version=3;";
         public SQLiteConnection cn;
-       
-        
-       
-       
 
         public void conectar()
         {
@@ -46,45 +42,11 @@ namespace nomina
             }
             finally
             {
-                cn.Clone();
+                cn.Close();
             }
             return true;
         }
-        //para eliminar datos
-        /*public bool eliminar(string tabla, string condicion)
-        {
-            cn.Open();
-            string sql = "delete from " + tabla + " where " + condicion;
-            comando = new SQLiteCommand(sql, cn);
-            int i = comando.ExecuteNonQuery();
-            cn.Close();
-            if (i > 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-
-        }
-        //actualizar
-        public bool actualizar (string tabla, string campos, string condicion)
-        {
-            cn.Open();
-            string sql = "update " + tabla + " set " + " where " + condicion;
-            comando = new SQLiteCommand(sql, cn);
-            int i = comando.ExecuteNonQuery();
-            cn.Clone();
-            if (i > 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }*/
+     
         public DataTable consultar2(string sql)
         {
                 SQLiteDataAdapter da = new SQLiteDataAdapter();
@@ -107,33 +69,8 @@ namespace nomina
             }
                
                 return dt;
-          
         }
-        //Insertar Datos en nomina
-        public bool insertar(string sql)
-        {
-            cn.Open();
-            SQLiteCommand comando;
-            comando = new SQLiteCommand(sql, cn);
-            int i = comando.ExecuteNonQuery();
-            cn.Close();
-            if (i > 0)
-            {
-                return true;
-            }else
-            {
-                return false;
-            }
-        }
-        /* public void CargarDatos()
-         {
-
-             SQLiteDataAdapter adaptador = new SQLiteDataAdapter("select * from empleado", );
-             DataTable Tabla = new DataTable("empleado");
-             adaptador.Fill(Tabla);
-             Datagv1.DataSource = Tabla;
-         }
-         */
+        
     }
 
 

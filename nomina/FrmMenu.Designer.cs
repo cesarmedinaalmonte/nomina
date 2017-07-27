@@ -30,6 +30,7 @@
         {
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.BtnMCargo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button2
@@ -52,11 +53,22 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "MANTENIMIENTO DE NOMINA";
             // 
+            // BtnMCargo
+            // 
+            this.BtnMCargo.Location = new System.Drawing.Point(31, 203);
+            this.BtnMCargo.Name = "BtnMCargo";
+            this.BtnMCargo.Size = new System.Drawing.Size(147, 43);
+            this.BtnMCargo.TabIndex = 8;
+            this.BtnMCargo.Text = "Mantenimiento Cargo";
+            this.BtnMCargo.UseVisualStyleBackColor = true;
+            this.BtnMCargo.Click += new System.EventHandler(this.BtnMCargo_Click);
+            // 
             // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(572, 379);
+            this.Controls.Add(this.BtnMCargo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Name = "FrmMenu";
@@ -70,6 +82,7 @@
         #endregion
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button BtnMCargo;
     }
 }
 

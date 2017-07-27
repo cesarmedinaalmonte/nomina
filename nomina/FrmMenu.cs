@@ -71,6 +71,12 @@ namespace nomina
         {
 
         }
+
+        private void BtnMCargo_Click(object sender, EventArgs e)
+        {
+            Mantenimientocargo lanzar = new Mantenimientocargo();
+            lanzar.Show();
+        }
     }
     }
 

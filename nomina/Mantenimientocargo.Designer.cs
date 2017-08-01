@@ -33,9 +33,10 @@
             this.label6 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.TboxNombre = new System.Windows.Forms.TextBox();
+            this.TboxBuscar = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.Datagv3 = new System.Windows.Forms.DataGridView();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Datagv3)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,12 +85,12 @@
             this.button2.Text = "Eliminar";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // TboxNombre
+            // TboxBuscar
             // 
-            this.TboxNombre.Location = new System.Drawing.Point(124, 89);
-            this.TboxNombre.Name = "TboxNombre";
-            this.TboxNombre.Size = new System.Drawing.Size(171, 20);
-            this.TboxNombre.TabIndex = 35;
+            this.TboxBuscar.Location = new System.Drawing.Point(124, 89);
+            this.TboxBuscar.Name = "TboxBuscar";
+            this.TboxBuscar.Size = new System.Drawing.Size(171, 20);
+            this.TboxBuscar.TabIndex = 35;
             // 
             // label2
             // 
@@ -109,18 +110,29 @@
             this.Datagv3.TabIndex = 47;
             this.Datagv3.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Datagv3_CellContentClick);
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(322, 84);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(105, 29);
+            this.button4.TabIndex = 48;
+            this.button4.Text = "Buscar";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // Mantenimientocargo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(461, 284);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.Datagv3);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.TboxID);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.TboxNombre);
+            this.Controls.Add(this.TboxBuscar);
             this.Controls.Add(this.label2);
             this.Name = "Mantenimientocargo";
             this.Text = "Mantenimientocargo";
@@ -137,8 +149,9 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox TboxNombre;
+        private System.Windows.Forms.TextBox TboxBuscar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView Datagv3;
+        private System.Windows.Forms.Button button4;
     }
 }
